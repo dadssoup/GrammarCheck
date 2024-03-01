@@ -38,6 +38,26 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="8*"/>
             </Grid.RowDefinitions>
+            <Border Name="Rule1Border" Grid.Column="0" Grid.Row="0"/>
+            <Border Name="Rule2Border" Grid.Column="1" Grid.Row="0"/>
+            <!--<Image Grid.Column="0" Grid.Row="1" Source="/rule1.png" />-->
+            <!--<TextBlock Grid.Column="0" Grid.Row="1" Text="S -> aSa"/>-->
+            <ListBox Grid.Column="0" Grid.Row="1" IsEnabled="False">
+                <ListBoxItem Content="S -> aSa" FontSize="18"/>
+                <ListBoxItem Content="S -> bSb" FontSize="18"/>
+                <ListBoxItem Content="S -> a" FontSize="18"/>
+                <ListBoxItem Content="S -> b" FontSize="18"/>
+                <ListBoxItem Content="S -> ''" FontSize="18"/>
+            </ListBox>
+            <ListBox Grid.Column="1" Grid.Row="1" IsEnabled="False">
+                <ListBoxItem Content="S -> 1A" FontSize="18"/>
+                <ListBoxItem Content="A -> 0B" FontSize="18"/>
+                <ListBoxItem Content="A -> ''" FontSize="18"/>
+                <ListBoxItem Content="B -> 1A" FontSize="18"/>
+                <ListBoxItem Content="B -> 0B" FontSize="18"/>
+                <ListBoxItem Content="B -> ''" FontSize="18"/>
+            </ListBox>
+            <!--<Image Grid.Column="1" Grid.Row="1" Source="/rule2.png"/>-->
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -49,6 +69,35 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="8*"/>
             </Grid.RowDefinitions>
+            <Border Name="Rule3Border" Grid.Column="0" Grid.Row="0" />
+            <Border Name="Rule4Border" Grid.Column="1" Grid.Row="0"/>
+            <Border Name="Rule5Border" Grid.Column="2" Grid.Row="0"/>
+            <ListBox Grid.Column="0" Grid.Row="1" IsEnabled="False">
+                <ListBoxItem Content="S -> AAAA" FontSize="18"/>
+                <ListBoxItem Content="A -> aA" FontSize="18"/>
+                <ListBoxItem Content="A -> b" FontSize="18"/>
+                <ListBoxItem Content="B -> ''" FontSize="18"/>
+            </ListBox>
+            <ListBox Grid.Column="1" Grid.Row="1" IsEnabled="False">
+                <ListBoxItem Content="S -> 0S" FontSize="18"/>
+                <ListBoxItem Content="S -> Q" FontSize="18"/>
+                <ListBoxItem Content="Q -> 1Q" FontSize="18"/>
+                <ListBoxItem Content="Q -> T" FontSize="18"/>
+                <ListBoxItem Content="T -> 0T" FontSize="18"/>
+                <ListBoxItem Content="T -> ''" FontSize="18"/>
+            </ListBox>
+            <ListBox Grid.Column="2" Grid.Row="1" IsEnabled="False">
+                <ListBoxItem Content="S -> TP" FontSize="18"/>
+                <ListBoxItem Content="P -> PN" FontSize="18"/>
+                <ListBoxItem Content="P -> Q" FontSize="18"/>
+                <ListBoxItem Content="QN -> NQQ" FontSize="18"/>
+                <ListBoxItem Content="Q -> 0" FontSize="18"/>
+                <ListBoxItem Content="TN -> 0T" FontSize="18"/>
+                <ListBoxItem Content="T -> 1" FontSize="18"/>
+            </ListBox>
+            <!--<Image Grid.Column="0" Grid.Row="1" Source="/rule3.png"/>
+            <Image Grid.Column="1" Grid.Row="1" Source="/rule4.png"/>
+            <Image Grid.Column="2" Grid.Row="1" Source="/rule5.png"/>-->
         </Grid>
         <Label Name="CheckResult"  Grid.Row="0" Grid.Column="1" Content="Ваш ввод соответствует правилам: ###"/>
     </Grid>
