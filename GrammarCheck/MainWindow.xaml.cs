@@ -104,9 +104,9 @@ namespace GrammarCheck
             var alphabet = new char[] { '0', '1' };
             char[] chars = input.ToCharArray();
             int len = chars.Length;
-            if (!IsSubset(alphabet, chars) || len == 0)
+            if (!IsSubset(alphabet, chars))
                 return false;
-            if (input != "" && chars[0] != '1')
+            if (input == "" || chars[0] != '1')
                 return false;
             else
             {
@@ -134,7 +134,7 @@ namespace GrammarCheck
             var alphabet = new char[] { '0', '1' };
             char[] chars = input.ToCharArray();
             int len = chars.Length;
-            if (!IsSubset(alphabet, chars) || len < 2 || (len == 2 && input != "01") || chars[0] != '0' || len == 0)
+            if (!IsSubset(alphabet, chars) || len < 2 || (len == 2 && input != "01") || chars[0] != '0')
                 return false;
             return true;
         }
@@ -145,6 +145,14 @@ namespace GrammarCheck
             int len = chars.Length;
             if (!IsSubset(alphabet, chars) || (len == 2 && input != "10") || len == 0)
                 return false;
+            if (len > 3)
+            {
+                int zeroCount = 0;
+                int zeroEndCount = 0;
+                for (int i = 0; i < len && chars[i] != '1'; i++, zeroCount++) ;
+                for (int i = len - 1; i > -1 && chars[i] != '1'; i--, zeroEndCount++) ;
+                if(Math.Pow(2, zeroCount) != zeroEndCount) return false;
+            }
             return true;
         }
 
