@@ -125,7 +125,7 @@ namespace GrammarCheck
             int len = chars.Length;
             if (!IsSubset(alphabet, chars))
                 return false;
-            if(len > 4 && chars.Count(a => a == 'a') == 0)
+            if((len > 4 && chars.Count(a => a == 'a') == 0) || chars.Count(a => a == 'b') > 4)
                 return false;
             return true;
         }
@@ -134,8 +134,22 @@ namespace GrammarCheck
             var alphabet = new char[] { '0', '1' };
             char[] chars = input.ToCharArray();
             int len = chars.Length;
-            if (!IsSubset(alphabet, chars) || len < 2 || (len == 2 && input != "01") || chars[0] != '0')
+            if (!IsSubset(alphabet, chars) || len < 2 || (len == 2 && input != "01"))
                 return false;
+            bool zeroEntry = false;
+            int beginIndice = input.IndexOf('1');
+            while (beginIndice < len)
+            {
+                if(zeroEntry && chars[beginIndice] == '1')
+                {
+                    return false;
+                }
+                if(!zeroEntry && chars[beginIndice] == '0')
+                {
+                    zeroEntry = true;
+                }
+                beginIndice++;
+            }
             return true;
         }
         private bool CheckGrammar5(string input)
